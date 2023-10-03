@@ -6,12 +6,21 @@ import java.util.*;
 
 public class SearchCLI {
     public static void main(String[] args) throws Exception {
+        File db = new File("c4j.db");
+        if (!db.exists()) {
+            System.out.println("异常！看上去您是第一次使用Cr4wl4j，我们需要先为您建立索引。");
+            System.out.println("请跟随提示完成操作。");
+            Indexer.doIndex();
+            System.out.println("索引建立完成，现在您可以使用Cr4wl4j进行搜索了。");
+            System.out.println("请重新运行本程序。");
+            System.exit(0);
+        }
         long start = System.currentTimeMillis();
         Map<Integer, Map<Integer, Integer>> tokens = new HashMap<>();
         // token -> (articleId -> weight)
         Map<Integer, String> lines = new HashMap<>();
         Map<Integer, String> titles = new HashMap<>();
-        Scanner scanner = new Scanner(new File("result.txt"), StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(db, StandardCharsets.UTF_8);
         int idx = 1000000;
         while (true) {
             try {
@@ -30,8 +39,11 @@ public class SearchCLI {
                 break;
             }
         }
+        if (lines.size() <= 1) {
+            System.out.println("异常！数据库可能已经损坏，请手动删除数据库后重新运行本程序。");
+            System.exit(0);
+        }
         System.out.println("索引建立完成，耗时：" + (System.currentTimeMillis() - start) + "ms");
-
         while (true) {
             System.out.print("请输入关键词：");
             String keyword = new Scanner(System.in).nextLine();

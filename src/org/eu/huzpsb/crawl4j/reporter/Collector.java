@@ -10,7 +10,7 @@ public class Collector {
 
     static {
         try {
-            writer = new PrintWriter("result.txt", StandardCharsets.UTF_8);
+            writer = new PrintWriter("c4j.db", StandardCharsets.UTF_8);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

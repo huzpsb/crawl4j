@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Fetcher {
-    public static String UA = "Mozilla/5.0 (compatible; Crawl4j/1.0; Like Baiduspider; +https://huzpsb.eu.org/crawl4j/)";
+    public static String UA = "Mozilla/5.0 (compatible; Crawl4j/1.0; +https://huzpsb.eu.org/crawl4j/)";
 
     public static String getPage(String url) {
         try {
