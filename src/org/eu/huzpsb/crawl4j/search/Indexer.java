@@ -27,7 +27,7 @@ public class Indexer {
             Fetcher.UA = "Mozilla/5.0 (compatible; Like Baiduspider; Crawl4j/1.0; +https://huzpsb.eu.org/crawl4j/)";
         }
         for (int i = 0; i < 50; i++) {
-            Thread.ofVirtual().name("T-" + i).start(new Worker());
+            new Thread(new Worker()).start();
         }
         try {
             Thread.sleep(time * 60L * 1000L);

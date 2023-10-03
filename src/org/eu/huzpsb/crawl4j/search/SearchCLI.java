@@ -20,7 +20,7 @@ public class SearchCLI {
         // token -> (articleId -> weight)
         Map<Integer, String> lines = new HashMap<>();
         Map<Integer, String> titles = new HashMap<>();
-        Scanner scanner = new Scanner(db, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(db, "UTF-8");
         int idx = 1000000;
         while (true) {
             try {
@@ -44,9 +44,11 @@ public class SearchCLI {
             System.exit(0);
         }
         System.out.println("索引建立完成，耗时：" + (System.currentTimeMillis() - start) + "ms");
+        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("请输入关键词：");
-            String keyword = new Scanner(System.in).nextLine();
+            String keyword = sc.nextLine();
+            System.out.println(keyword);
             start = System.currentTimeMillis();
             Map<Integer, Integer> result = new HashMap<>();
             // articleId -> weight

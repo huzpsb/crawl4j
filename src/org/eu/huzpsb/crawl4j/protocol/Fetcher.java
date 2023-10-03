@@ -34,7 +34,7 @@ public class Fetcher {
             while ((length = inputStream.read(buffer)) != -1) {
                 result.write(buffer, 0, length);
             }
-            String str = result.toString(StandardCharsets.UTF_8);
+            String str = result.toString("UTF-8");
             if (str.contains("\ufffd")) {
                 str = result.toString("GBK");
             }
