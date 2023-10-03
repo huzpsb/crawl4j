@@ -1,7 +1,6 @@
 package org.eu.huzpsb.crawl4j.search;
 
 import java.io.File;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class SearchCLI {
@@ -48,7 +47,7 @@ public class SearchCLI {
         while (true) {
             System.out.print("请输入关键词：");
             String keyword = sc.nextLine();
-            System.out.println(keyword);
+            System.out.println("关键词 [" + keyword + "] 的搜索结果如下：");
             start = System.currentTimeMillis();
             Map<Integer, Integer> result = new HashMap<>();
             // articleId -> weight
@@ -72,9 +71,9 @@ public class SearchCLI {
                 int id = pendingResult.index;
                 System.out.println("[" + (i + 1) + "] 文章标题：" + titles.get(id));
                 System.out.println("[+] 文章内容：" + lines.get(id));
-                System.out.println(" ");
             }
             System.out.println("搜索完成，耗时：" + (System.currentTimeMillis() - start) + "ms");
+            System.out.println(" ");
         }
     }
 }

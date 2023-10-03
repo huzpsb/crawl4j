@@ -11,11 +11,12 @@ public class Spider {
 
     public static synchronized boolean isLawful(String url) {
         String lowerCase = url.toLowerCase();
-        if (lowerCase.contains("gov") || lowerCase.contains("hust")) {
+        if (lowerCase.contains("gov") || lowerCase.contains("hust") || lowerCase.contains("bingyan")) {
+            // 避免不必要的麻烦
             return false;
         }
         String[] split = url.split("//");
-        String domain = split[split.length == 0 ? 0 : 1].split("/")[0];
+        String domain = split[split.length == 1 ? 0 : 1].split("/")[0];
         domain = domain.split("\\?")[0];
         if (cache.containsKey(domain)) {
             return cache.get(domain);
