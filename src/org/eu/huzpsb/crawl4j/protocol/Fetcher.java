@@ -14,6 +14,7 @@ public class Fetcher {
             URI uri = new URI(url);
             URL urlObj = uri.toURL();
             HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+            con.setConnectTimeout(3000);
             con.setRequestMethod("GET");
             con.setRequestProperty("User-Agent", UA);
             con.connect();

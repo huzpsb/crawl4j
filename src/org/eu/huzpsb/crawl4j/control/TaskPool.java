@@ -4,7 +4,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class TaskPool {
-    private static final BlockingQueue<String> taskQueue = new LinkedBlockingQueue<>();
+    public static final BlockingQueue<String> taskQueue = new LinkedBlockingQueue<>();
 
     public static String getTask() {
         try {

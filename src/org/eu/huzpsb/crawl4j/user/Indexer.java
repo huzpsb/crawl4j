@@ -29,7 +29,10 @@ public class Indexer {
             new Thread(new Worker()).start();
         }
         try {
-            Thread.sleep(time * 60L * 1000L);
+            for (long i = 0; i < time * 10L; i++) {
+                Thread.sleep(6000L);
+                System.out.println("队列长度：" + TaskPool.taskQueue.size());
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

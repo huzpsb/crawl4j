@@ -22,7 +22,7 @@ public class Core {
                         break;
                     lines.put(idx, parts[0]);
                     titles.put(idx, parts[1]);
-                    for (int token : Tokenlizer.tokenlize(parts[1])) {
+                    for (int token : Tokenizer.tokenize(parts[1])) {
                         Map<Integer, Integer> map = tokens.computeIfAbsent(token, k -> new HashMap<>());
                         map.put(idx, map.getOrDefault(idx, 0) + 1);
                     }
@@ -45,7 +45,7 @@ public class Core {
     public static List<PendingResult> doSearch(String keyword) {
         Map<Integer, Integer> resultByToken = new HashMap<>();
         // articleId -> weight
-        for (int token : Tokenlizer.tokenlize(keyword)) {
+        for (int token : Tokenizer.tokenize(keyword)) {
             Map<Integer, Integer> map = tokens.get(token);
             if (map == null)
                 continue;
