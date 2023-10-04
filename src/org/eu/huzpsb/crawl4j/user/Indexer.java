@@ -1,17 +1,16 @@
 package org.eu.huzpsb.crawl4j.user;
 
 import org.eu.huzpsb.crawl4j.Main;
-import org.eu.huzpsb.crawl4j.protocol.Lawful;
+import org.eu.huzpsb.crawl4j.control.Collector;
+import org.eu.huzpsb.crawl4j.control.TaskPool;
+import org.eu.huzpsb.crawl4j.control.Worker;
 import org.eu.huzpsb.crawl4j.protocol.Fetcher;
-import org.eu.huzpsb.crawl4j.reporter.Collector;
-import org.eu.huzpsb.crawl4j.reporter.TaskPool;
-import org.eu.huzpsb.crawl4j.reporter.Worker;
-
-import java.util.Scanner;
+import org.eu.huzpsb.crawl4j.protocol.Lawful;
 
 public class Indexer {
     public static void doIndex() {
-        System.out.println("请输入一个网址，我们将从这个网址开始爬取。例如（https://www.2345.com/）：");
+        Extender.doExtend();
+        System.out.println("请输入一个网址，我们将从这个网址开始爬取。例如（https://www.2345.com/）");
         System.out.println("提示！选择与你所需要的信息最接近的网址，可以提高爬取效率。");
         System.out.println("提示！输入一个导航网址，可以使你的爬虫更贴近日常使用。");
         System.out.print(">");

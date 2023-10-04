@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Crawl4j - 开源的搜索引擎！</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #search-container {
+            text-align: center;
+            margin-top: 30vh;
+        }
+
+        #search-container img {
+            width: 150px;
+            height: 150px;
+        }
+
+        #search-box {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(20% + 250px);
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #notice-container {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="search-container">
+    <img alt="Logo" src="https://via.placeholder.com/150">
+    <br>
+    <input id="search-box" onkeypress="handleKeyPress(event)" placeholder="搜点什么" type="text">
+    <br>
+</div>
+<div id="footer">
+    &copy; 2023 Crawl4j：国产开源搜索引擎 | <a href="https://github.com/huzpsb/crawl4j" style="color: #fff;">GitHub</a> |
+    <a href="#" onclick="displayNotice()" style="color: #fff;">声明</a>
+</div>
+<div id="notice-container">
+
+    <p>
+        1，因为程序是开源程序，所以请不要因为内容相关的问题，而去找程序作者，因为程序作者很有可能并不知道本站的存在，也不知道本站的内容是什么。
+    </p>
+    <p>
+        2，本站内容由程序自动整理，不代表本站的观点，如果有任何不妥，请即时与站长联系，站长会第一时间删除。
+    </p>
+    <p>
+        3，本站所有内容均来自互联网，且全部标明了出处，如有侵权，请联系站长删除的同时，不要忘了要求内容来源处删除。只要内容来源处删除了，本站的链接自然也就失效了；
+        如果内容来源处不删除，即使本站删除了，也仍然留在互联网上，请理解，谢谢！
+    </p>
+</div>
+
+<script>
+    function performSearch() {
+        const query = document.getElementById('search-box').value;
+        if (query.trim() !== '') {
+            const encodedQuery = encodeURIComponent(query);
+            window.location.href = `/search?question=${encodedQuery}`;
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    }
+
+    function displayNotice() {
+        document.getElementById('notice-container').style.display = 'block';
+        document.getElementById('search-container').style.display = 'none';
+        document.getElementById('footer').style.display = 'none';
+    }
+</script>
+</body>
+</html>

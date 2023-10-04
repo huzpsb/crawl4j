@@ -32,7 +32,7 @@ public class Lawful {
             System.out.println("依协议跳过：" + domain);
             return false;
         }
-        cache.put(domain, 100);
+        cache.put(domain, 1250);
         System.out.println("正在索引：" + domain);
         return true;
     }

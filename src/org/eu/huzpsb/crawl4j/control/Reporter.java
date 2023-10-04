@@ -1,4 +1,4 @@
-package org.eu.huzpsb.crawl4j.reporter;
+package org.eu.huzpsb.crawl4j.control;
 
 public class Reporter {
     public static boolean report(String url, String content) {

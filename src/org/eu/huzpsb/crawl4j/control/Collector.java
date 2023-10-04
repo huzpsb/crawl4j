@@ -1,4 +1,4 @@
-package org.eu.huzpsb.crawl4j.reporter;
+package org.eu.huzpsb.crawl4j.control;
 
 import java.io.PrintWriter;
 

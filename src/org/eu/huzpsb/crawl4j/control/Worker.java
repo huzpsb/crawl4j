@@ -1,7 +1,7 @@
-package org.eu.huzpsb.crawl4j.reporter;
+package org.eu.huzpsb.crawl4j.control;
 
-import org.eu.huzpsb.crawl4j.protocol.Parser;
 import org.eu.huzpsb.crawl4j.protocol.Fetcher;
+import org.eu.huzpsb.crawl4j.protocol.Parser;
 
 import java.util.List;
 

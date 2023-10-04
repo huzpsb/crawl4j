@@ -5,7 +5,7 @@ import org.eu.huzpsb.crawl4j.search.Core;
 import org.eu.huzpsb.crawl4j.search.PendingResult;
 
 import java.io.File;
-import java.util.*;
+import java.util.List;
 
 public class SearchCLI {
     public static void startCLI() {

@@ -1,10 +1,10 @@
-package org.eu.huzpsb.crawl4j.reporter;
+package org.eu.huzpsb.crawl4j.control;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class TaskPool {
-    private static BlockingQueue<String> taskQueue = new LinkedBlockingQueue<>();
+    private static final BlockingQueue<String> taskQueue = new LinkedBlockingQueue<>();
 
     public static String getTask() {
         try {

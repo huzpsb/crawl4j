@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.*;
 
 public class Core {
-    private static Map<Integer, Map<Integer, Integer>> tokens = new HashMap<>();
+    private static final Map<Integer, Map<Integer, Integer>> tokens = new HashMap<>();
     // token -> (articleId -> weight)
-    private static Map<Integer, String> lines = new HashMap<>();
-    private static Map<Integer, String> titles = new HashMap<>();
+    private static final Map<Integer, String> lines = new HashMap<>();
+    private static final Map<Integer, String> titles = new HashMap<>();
 
     static {
         try {
@@ -22,7 +22,7 @@ public class Core {
                         break;
                     lines.put(idx, parts[0]);
                     titles.put(idx, parts[1]);
-                    for (Character c : parts[1].toCharArray()) {
+                    for (Character c : parts[1].replace(" ", "").toCharArray()) {
                         int token = Tokenlizer.tokenlize(c);
                         Map<Integer, Integer> map = tokens.computeIfAbsent(token, k -> new HashMap<>());
                         map.put(idx, map.getOrDefault(idx, 0) + 1);
@@ -67,6 +67,9 @@ public class Core {
             pendingResult.title = title;
             if (title.contains(keyword)) {
                 pendingResult.weight += 100;
+            }
+            if (title.length() > 100) {
+                pendingResult.weight = 1;
             }
         }
         resultWithK.sort((o1, o2) -> o2.weight - o1.weight);
