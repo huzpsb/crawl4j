@@ -1,4 +1,4 @@
-package org.eu.huzpsb.crawl4j.search;
+package org.eu.huzpsb.crawl4j.user;
 
 import org.eu.huzpsb.crawl4j.Main;
 import org.eu.huzpsb.crawl4j.protocol.Lawful;
