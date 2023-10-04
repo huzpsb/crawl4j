@@ -1,9 +1,7 @@
-package org.eu.huzpsb.crawl4j.worker;
+package org.eu.huzpsb.crawl4j.reporter;
 
-import org.eu.huzpsb.crawl4j.parser.Parser;
+import org.eu.huzpsb.crawl4j.protocol.Parser;
 import org.eu.huzpsb.crawl4j.protocol.Fetcher;
-import org.eu.huzpsb.crawl4j.reporter.Reporter;
-import org.eu.huzpsb.crawl4j.schedule.TaskPool;
 
 import java.util.List;
 

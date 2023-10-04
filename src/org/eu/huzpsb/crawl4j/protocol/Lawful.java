@@ -1,11 +1,9 @@
-package org.eu.huzpsb.crawl4j.lawful;
-
-import org.eu.huzpsb.crawl4j.protocol.Fetcher;
+package org.eu.huzpsb.crawl4j.protocol;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Spider {
+public class Lawful {
     private static final Map<String, Integer> cache = new ConcurrentHashMap<>();
     public static boolean unleash = false;
 

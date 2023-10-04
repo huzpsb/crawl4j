@@ -32,13 +32,14 @@ public class Core {
                 }
             }
             if (lines.size() <= 1) {
-                System.out.println("异常！数据库可能已经损坏，请手动删除数据库后重新运行本程序。");
-                System.exit(0);
+                System.out.println("异常！数据库可能已经损坏或为空，请手动删除数据库后重新运行本程序。");
+                System.exit(-1);
             }
             System.out.println("索引建立完成，耗时：" + (System.currentTimeMillis() - start) + "ms");
         } catch (Exception e) {
-            System.out.println("异常！数据库可能已经损坏，请手动删除数据库后重新运行本程序。");
-            System.exit(0);
+            e.printStackTrace();
+            System.out.println("异常！数据库可能已经损坏或无法访问，请手动删除数据库后重新运行本程序。");
+            System.exit(-2);
         }
     }
 

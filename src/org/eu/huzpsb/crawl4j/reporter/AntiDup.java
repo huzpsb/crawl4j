@@ -1,4 +1,4 @@
-package org.eu.huzpsb.crawl4j.schedule;
+package org.eu.huzpsb.crawl4j.reporter;
 
 import java.util.HashSet;
 import java.util.Set;

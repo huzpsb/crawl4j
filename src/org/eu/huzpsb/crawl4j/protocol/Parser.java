@@ -1,4 +1,4 @@
-package org.eu.huzpsb.crawl4j.parser;
+package org.eu.huzpsb.crawl4j.protocol;
 
 import java.util.ArrayList;
 import java.util.List;

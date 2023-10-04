@@ -1,9 +1,6 @@
 package org.eu.huzpsb.crawl4j.reporter;
 
-import org.eu.huzpsb.crawl4j.schedule.AntiDup;
-
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 
 public class Collector {
     private static final PrintWriter writer;

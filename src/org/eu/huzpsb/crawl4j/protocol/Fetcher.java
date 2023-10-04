@@ -1,14 +1,10 @@
 package org.eu.huzpsb.crawl4j.protocol;
 
-import org.eu.huzpsb.crawl4j.lawful.Spider;
-
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 public class Fetcher {
     public static String UA = "Mozilla/5.0 (compatible; Crawl4j/1.0; +https://huzpsb.eu.org/crawl4j/)";
@@ -54,7 +50,7 @@ public class Fetcher {
     }
 
     public static String getPageLawfully(String url) {
-        if (!Spider.isLawful(url)) {
+        if (!Lawful.isLawful(url)) {
             return "Could not fetch page at " + url + "\n[Not lawful]\n";
         }
         return getPage(url);
