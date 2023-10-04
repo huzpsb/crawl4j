@@ -22,8 +22,7 @@ public class Core {
                         break;
                     lines.put(idx, parts[0]);
                     titles.put(idx, parts[1]);
-                    for (Character c : parts[1].replace(" ", "").toCharArray()) {
-                        int token = Tokenlizer.tokenlize(c);
+                    for (int token : Tokenlizer.tokenlize(parts[1])) {
                         Map<Integer, Integer> map = tokens.computeIfAbsent(token, k -> new HashMap<>());
                         map.put(idx, map.getOrDefault(idx, 0) + 1);
                     }
@@ -46,8 +45,7 @@ public class Core {
     public static List<PendingResult> doSearch(String keyword) {
         Map<Integer, Integer> resultByToken = new HashMap<>();
         // articleId -> weight
-        for (Character c : keyword.toCharArray()) {
-            int token = Tokenlizer.tokenlize(c);
+        for (int token : Tokenlizer.tokenlize(keyword)) {
             Map<Integer, Integer> map = tokens.get(token);
             if (map == null)
                 continue;
@@ -60,13 +58,16 @@ public class Core {
         List<PendingResult> list = new ArrayList<>();
         resultByToken.forEach((articleId, weight) -> list.add(new PendingResult(articleId, weight)));
         list.sort((o1, o2) -> o2.weight - o1.weight);
-        int size = Math.min(15, list.size());
+        int size = Math.min(20, list.size());
         List<PendingResult> resultWithK = list.subList(0, size);
+        String[] keywords = keyword.split(" ");
         for (PendingResult pendingResult : resultWithK) {
             String title = titles.get(pendingResult.index);
             pendingResult.title = title;
-            if (title.contains(keyword)) {
-                pendingResult.weight += 100;
+            for (String kw : keywords) {
+                if (title.contains(kw)) {
+                    pendingResult.weight += 10;
+                }
             }
             if (title.length() > 100) {
                 pendingResult.weight = 1;
