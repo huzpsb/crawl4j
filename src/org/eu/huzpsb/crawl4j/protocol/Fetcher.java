@@ -26,13 +26,22 @@ public class Fetcher {
             if (responseCode / 100 == 2) {
                 inputStream = con.getInputStream();
             } else {
-                inputStream = con.getErrorStream();
+                return "Could not fetch page at " + url + "\n[Response code: " + responseCode + "]\n";
             }
+            if (!con.getContentType().toLowerCase().contains("text/html")) {
+                return "Could not fetch page at " + url + "\n[Not html]\n";
+            }
+
             ByteArrayOutputStream result = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];
+            int i = 0;
             int length;
             while ((length = inputStream.read(buffer)) != -1) {
+                i++;
                 result.write(buffer, 0, length);
+                if (i > 1000) {
+                    return "Could not fetch page at " + url + "\n[Too large]\n";
+                }
             }
             String str = result.toString("UTF-8");
             if (str.contains("\ufffd")) {

@@ -17,7 +17,7 @@ public class Collector {
     }
 
     public static synchronized boolean Collect(String url, String content) {
-        if (content.contains("$")) {
+        if (content.contains("$") || content.contains(";&#") || content.contains("\ufffd")) {
             return false;
         }
         if (AntiDup.isProcessed(content)) {

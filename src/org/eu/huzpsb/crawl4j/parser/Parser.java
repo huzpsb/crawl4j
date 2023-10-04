@@ -25,6 +25,7 @@ public class Parser {
             if (str.startsWith("http://") || str.startsWith("https://")) {
                 list.add(str);
             } else {
+                if (str.contains("javascript:")) continue;
                 String base = baseP;
                 int firstQuestionMarkIndex = base.indexOf("?");
                 if (firstQuestionMarkIndex != -1) {

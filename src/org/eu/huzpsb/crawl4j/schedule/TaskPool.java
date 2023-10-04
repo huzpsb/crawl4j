@@ -18,6 +18,9 @@ public class TaskPool {
         if (AntiDup.isProcessed(url)) {
             return;
         }
+        if (taskQueue.size() > 10000) {
+            return;
+        }
         taskQueue.add(url);
     }
 }
