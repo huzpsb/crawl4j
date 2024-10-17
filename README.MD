@@ -3,9 +3,7 @@ Crawl4j
 
 ## 简介
 
-Try it yourself! [在线Demo](https://apis.huzpsb.eu.org/search)
-
-在线Demo是以2345网址导航和某OIer博客为原点，各抓取十分钟（共二十分钟的抓取量）的效果。
+Try it yourself! ~~[在线Demo](https://example.com)~~ 离线
 
 Crawl4j是一个开源的互联网搜索引擎。你可以使用它在一个小时内索引上万个互联网站点，并进行毫秒级检索。  
 Crawl4j致力于为个人提供可自行部署的搜索引擎，让每个人都能拥有自己的搜索引擎，而不是被少数大公司垄断。  
